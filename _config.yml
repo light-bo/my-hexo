@@ -1,0 +1,97 @@
+# Hexo Configuration
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site
+title: light_bo
+subtitle: 聊聊技术，谈谈生活 ^_^
+description: Thinking && Coding
+author: light_bo #显示在头像下方的第一行
+SEOTitle: light_bo's blog
+email: light_bo@126.com
+language:
+timezone:
+
+
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: http://light-bo.github.io/
+root: /
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+
+# Writing
+new_post_name: :title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link: true # Open external links in new tab
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: false
+  tab_replace:
+
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 10
+pagination_dir: page
+
+# Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+theme: Anisina3.1
+
+# Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repo: https://github.com/light-bo/light-bo.github.io.git
+
+#cdn
+cdn-url: "http://7xskiu.com1.z0.glb.clouddn.com/"
+
+
+# Sidebar settings
+sidebar: true
+sidebar-about-description: "讲本质，说原理 ^_^ \r\n light_bo@126.com"
+sidebar-avatar: "http://7xskiu.com1.z0.glb.clouddn.com/avatar.jpg"
+
+#SNS settings
+#github_username: light-bo
+
+#post default images
+post-default-img: "http://7xskiu.com1.z0.glb.clouddn.com/blog_header.jpg"
+
+#Baidu Analytics**
+ba_track_id: 1d052ac624dc77b54eefe6e64ee7228e
+
+#share and comment
+use_livere: true
+livere_uid: MTAyMC8zMTE0NC83Njkz
