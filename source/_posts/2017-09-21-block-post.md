@@ -1,7 +1,7 @@
 ---
 title: Block， 你为啥要 copy？
 date: 2017-09-21 23:55:42
-header-img: blog_header.jpg
+header-img: blog-header.jpeg
 tags: iOS
 ---
 
@@ -25,18 +25,11 @@ tags: iOS
 [官方文档](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/WorkingwithBlocks/WorkingwithBlocks.html#//apple_ref/doc/uid/TP40011210-CH8-SW1) 中对这个问题是这样描述的：   
 
 ```  
-You should specify copy as the property attribute, because a 
-block needs to be copied to keep track of its captured state outside 
+You should specify copy as the property attribute, because a
+block needs to be copied to keep track of its captured state outside
 of the original scope. This isn’t something you need to worry about
  when using Automatic Reference Counting, as it will happen
- automatically, but it’s best practice for the property attribute to 
+ automatically, but it’s best practice for the property attribute to
  show the resultant behavior.
 ```
 意思就是说如果你是使用 **ARC** 编写代码的话，使用 **strong** 去修饰 **block** 也是没有问题的，因为 **ARC** 会帮你做 **copy** 这个动作，但是为了显示指明程序中的 **copy** 动作，建议还是使用 **copy** 修饰符显式地指出这里的内存行为。
-
-
-
-
-
-
-

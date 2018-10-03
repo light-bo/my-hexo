@@ -12,48 +12,48 @@ tags: UICollectionViewLayout
 用过 nice app 的童鞋应该比较熟悉，nice 对于图片贴的显示是根据图片数量有 9 种不同的显示样式的，如下图所示：
 
 <div  align="left">
-	<img src="http://7xskiu.com1.z0.glb.clouddn.com/image/sudoku/1.png" width = "300" height = "300" align=center/>
+	<img src="/images/iOS/sudoku-1.png" width = "300" height = "300" align=center/>
 </div>
 
 
 <div  align="left">
-	<img src="http://7xskiu.com1.z0.glb.clouddn.com/image/sudoku/2.png" width = "300" height = "300" align=center />
+	<img src="/images/iOS/sudoku-2.png" width = "300" height = "300" align=center />
 </div>
 
 
 <div  align="left">
-	<img src="http://7xskiu.com1.z0.glb.clouddn.com/image/sudoku/3.png" width = "300" height = "300" align=center />
+	<img src="/images/iOS/sudoku-3.png" width = "300" height = "300" align=center />
 </div>   
 
 
 <div  align="left">
-	<img src="http://7xskiu.com1.z0.glb.clouddn.com/image/sudoku/4.png" width = "300" height = "300" align=center />
-</div>
-   
-
-<div  align="left">
-	<img src="http://7xskiu.com1.z0.glb.clouddn.com/image/sudoku/5.png" width = "300" height = "300" align=center />
+	<img src="/images/iOS/sudoku-4.png" width = "300" height = "300" align=center />
 </div>
 
 
 <div  align="left">
-	<img src="http://7xskiu.com1.z0.glb.clouddn.com/image/sudoku/6.png" width = "300" height = "300" align=center />
+	<img src="/images/iOS/sudoku-5.png" width = "300" height = "300" align=center />
 </div>
 
 
 <div  align="left">
-	<img src="http://7xskiu.com1.z0.glb.clouddn.com/image/sudoku/7.png" width = "300" height = "300" align=center />
+	<img src="/images/iOS/sudoku-6.png" width = "300" height = "300" align=center />
 </div>
 
 
 <div  align="left">
-	<img src="http://7xskiu.com1.z0.glb.clouddn.com/image/sudoku/8.png" width = "300" height = "300" align=center />
+	<img src="/images/iOS/sudoku-7.png" width = "300" height = "300" align=center />
+</div>
+
+
+<div  align="left">
+	<img src="/images/iOS/sudoku-8.png" width = "300" height = "300" align=center />
 </div>
 
 
 
 <div  align="left">
-	<img src="http://7xskiu.com1.z0.glb.clouddn.com/image/sudoku/9.png" width = "300" height = "300" align=center />
+	<img src="/images/iOS/sudoku-9.png" width = "300" height = "300" align=center />
 </div>
 
 # 如何实现
@@ -70,7 +70,7 @@ tags: UICollectionViewLayout
 
 /**
  The intermal of each column.
- 
+
  每一列的间距
  */
 @property (nonatomic, assign) float columnMargin;
@@ -78,7 +78,7 @@ tags: UICollectionViewLayout
 
 /**
  The interval of each row.
- 
+
  每一行的间距
  */
 @property (nonatomic, assign) float rowMargin;
@@ -101,7 +101,7 @@ tags: UICollectionViewLayout
     if (self) {
         _attrsArray = [NSMutableArray new];
     }
-    
+
     return self;
 }
 
@@ -113,7 +113,7 @@ tags: UICollectionViewLayout
 
 - (void)prepareLayout {
     [super prepareLayout];
-    
+
     //计算所有 cell 的属性
     [self.attrsArray removeAllObjects];
     NSInteger count = [self.collectionView numberOfItemsInSection:0];
@@ -137,10 +137,10 @@ tags: UICollectionViewLayout
 // 根据图片的数量，计算图片布局，这里使用策略模式，每一种布局由一个类负责，分别是 BLLSudokuItemLayoutAttributeAlgorithm1， BLLSudokuItemLayoutAttributeAlgorithm2， ...
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger itemAmount = [self.collectionView numberOfItemsInSection:0];
-    
+
     Class algorithmClass =  NSClassFromString([NSString stringWithFormat:@"BLLSudokuItemLayoutAttributeAlgorithm%zd", itemAmount]);
     BLLSudokuItemLayoutConfigurator *layoutConfigurator = [[BLLSudokuItemLayoutConfigurator alloc] initWithAlgorithmStrategy:[algorithmClass new]];
-    
+
     return [layoutConfigurator layoutConfigWithCollectionView:self indexPath:indexPath];
 }
 
@@ -191,10 +191,10 @@ tags: UICollectionViewLayout
     float halfWidth = (width - collectionViewSudokuLayout.columnMargin)/2;
     float height = collectionViewSudokuLayout.collectionView.height - collectionViewSudokuLayout.sectionInset.top - collectionViewSudokuLayout.sectionInset.bottom;
     float halfHeight = (height - collectionViewSudokuLayout.rowMargin) / 2;
-    
+
     UICollectionViewLayoutAttributes *attrs = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
     attrs.frame = CGRectMake((indexPath.row % 2) * (halfWidth + collectionViewSudokuLayout.columnMargin), (indexPath.row > 1? 1: 0) * (halfHeight+collectionViewSudokuLayout.rowMargin), halfWidth, halfHeight);
-    
+
     return attrs;
 }
 
@@ -207,21 +207,13 @@ tags: UICollectionViewLayout
    BLLCollectionViewImageSudokuLayout *collectionViewImageSudokuLayout = [[BLLCollectionViewImageSudokuLayout alloc] init];
     collectionViewImageSudokuLayout.columnMargin = 2;
     collectionViewImageSudokuLayout.rowMargin = 2;
-    
+
     //yourWidth：整个图片区域的宽度  yourHeight：整个图片区域的高度
     _mainCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, yourWidth, yourHeight) collectionViewLayout:collectionViewImageSudokuLayout];
     _mainCollectionView.backgroundColor = [UIColor whiteColor];
     _mainCollectionView.delegate = self;
     _mainCollectionView.dataSource = self;
     [_mainCollectionView registerClass:[BLLImageCollectionViewCell class] forCellWithReuseIdentifier:kImageCellId];
-    
+
     [self addSubview:_mainCollectionView];
 ```
-
-
-
-
-
-
-
-

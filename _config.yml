@@ -75,19 +75,22 @@ deploy:
   repo: https://github.com/light-bo/light-bo.github.io.git
 
 #cdn
-cdn-url: "http://7xskiu.com1.z0.glb.clouddn.com/"
-
+# cdn-url: "http://7xskiu.com1.z0.glb.clouddn.com/"
+cdn-url: "/images/global/" # 指定博客背景图
 
 # Sidebar settings
 sidebar: true
 sidebar-about-description: "努力看清世间所有定理 ^_^ \r\n light_bo@126.com"
-sidebar-avatar: "http://7xskiu.com1.z0.glb.clouddn.com/avatar.jpg"
+sidebar-avatar: "/images/global/avatar.JPG"
+# sidebar-avatar: "http://7xskiu.com1.z0.glb.clouddn.com/avatar.jpg"
+
 
 #SNS settings
 #github_username: light-bo
 
 #post default images
-post-default-img: "http://7xskiu.com1.z0.glb.clouddn.com/blog_header.jpg"
+post-default-img: "/images/global/blog-header.jpeg"
+# post-default-img: "http://7xskiu.com1.z0.glb.clouddn.com/blog_header.jpg"
 
 #Baidu Analytics**
 ba_track_id: 1d052ac624dc77b54eefe6e64ee7228e
